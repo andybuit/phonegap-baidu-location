@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0" id="com.valuecreation.phonegap.plugins.baidulocation" version="0.1.0">
+    <name>BaiduLocation</name>
+    <description>Baidu Location Plugin for Phonegap</description>
+    <license>MIT</license>
+    <keywords>baidu, location, phonegap</keywords>
+ 
+    <!-- android -->
+    <platform name="android">
+    	<js-module src="www/baidulocation.js" name="BiaduLocation">
+       	 	<clobbers target="window.baiduLocation" />
+    	</js-module>
+ 
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="BaiduLocation">
+                <param name="android-package" value="com.valuecreative.phonegap.plugins.baidulocation.BaiduLocation"/>
+            </feature>
+        </config-file> 
+        
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+        </config-file>
+        
+        <source-file src="src/android/BaiduLocation.java" target-dir="src/com/valuecreative/phonegap/plugins/baidulocation" />   
+        <source-file src="src/android/locSDK_4.1.jar" target-dir="libs" framework="true"/>      
+        <source-file src="src/android/liblocSDK4b.so" target-dir="libs/armeabi" framework="true"/>   
+    </platform>         
+</plugin>
